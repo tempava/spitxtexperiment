@@ -1,0 +1,75 @@
+# text experiment
+# () add something for nilchars
+
+txtspo = File.read(TXTFILE)
+smplpath = SAMPLEPATH (just the folder)
+#puts txtspn
+
+doccharsstr = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVWXYZ()123456789+-=,.!?: "
+docchars = doccharsstr.chars
+dcl = docchars.length
+txtspn = txtspo.chars
+txtl = txtspn.length
+#puts docchars
+
+#seed: calculates seed based on txt length, spaces, nilchars
+
+nilchars = 1
+txtl.times do
+  char = txtspn.look
+  if docchars.include? char
+    nilchars = nilchars + 1
+  end
+  tick
+end
+#puts nilchars
+
+spchars = 1
+txtl.times do
+  char = txtspn.look
+  if char == " "
+    spchars = spchars + 1
+  end
+  tick
+end
+#puts spchars
+
+s = txtl*spchars+nilchars
+#puts s
+use_random_seed s
+docchars = docchars.shuffle
+
+#samples
+smpls = []
+smpl = 0
+dcl.times do
+  smpls.push(smpl)
+  smpl = smpl+1
+end
+#puts dcl
+#puts smpls
+
+#sleeps
+# multiplicator of sample_duration
+sl = []
+txtl.times do
+  sl.push(rrand(0.2, 1.2))
+end
+#puts sl
+
+# final: plays the stuff
+txtl.times do
+  char = txtspn.look
+  if docchars.include? char
+    p = docchars.find_index(char)
+    sample smplpath, smpls[p]
+    puts "sample no. #{smpls[p]}"
+    sd = sample_duration smplpath, smpls[p]
+    #puts sd
+  else
+    sd = 0.5
+  end
+  mult = sl.look
+  sleep mult*sd
+  tick
+end

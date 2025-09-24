@@ -2,7 +2,7 @@
 # () add something for nilchars
 
 txtspo = File.read(TXTFILE)
-smplpath = SAMPLEPATH (just the folder)
+smplpath = SAMPLEPATH JUST THE FOLDER
 #puts txtspn
 
 doccharsstr = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVWXYZ()123456789+-=,.!?: "
@@ -72,4 +72,5 @@ txtl.times do
   mult = sl.look
   sleep mult*sd
   tick
+
 end

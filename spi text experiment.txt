@@ -69,8 +69,10 @@ txtl.times do
   else
     sd = 0.5
   end
+  puts char
   mult = sl.look
   sleep mult*sd
   tick
 
 end
+

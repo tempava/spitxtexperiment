@@ -34,7 +34,8 @@ txtl.times do
 end
 #puts spchars
 
-s = txtl*spchars+nilchars
+s = txtl*spchars+nilchars #you can add any number or calculations whatever you want, the next line converts your number to an integer automatically so try anything,,!!!!!
+s = s.to_i
 #puts s
 use_random_seed s
 docchars = docchars.shuffle
@@ -75,4 +76,5 @@ txtl.times do
   tick
 
 end
+
 

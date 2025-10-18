@@ -1,11 +1,11 @@
 # text experiment
 # () add something for nilchars
 
-txtspo = File.read(TXTFILE)
-smplpath = SAMPLEPATH JUST THE FOLDER
+txtspo = File.read(TXTFILE) #replace TXTFILE with your txt file input
+smplpath = SAMPLEPATH JUST THE FOLDER #replace SAMPLE PATH JUST THE FOLDER with your sample pack folder path
 #puts txtspn
 
-doccharsstr = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVWXYZ()123456789+-=,.!?: "
+doccharsstr = "abcdefghijklmnopqrstuvwABCDEFGHIJKLMNOPQRSTUVWXYZ()123456789+-=,.!?: " #add / remove reactive characters in this string.... maybe... don't do ".....
 docchars = doccharsstr.chars
 dcl = docchars.length
 txtspn = txtspo.chars
@@ -72,9 +72,10 @@ txtl.times do
   end
   puts char
   mult = sl.look
-  sleep mult*sd
+  slp = mult*sd
+  puts "sleep: #{slp}"
+  sleep slp
   tick
-
 end
 
-
+puts txtspo
